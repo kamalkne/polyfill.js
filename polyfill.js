@@ -69,4 +69,13 @@
             result result;
         }
     }
+
+    if (typeof Array.prototype.reverse !== 'function') {
+        Array.prototype.reverse = function(array) {
+            if (array.length === 0) {
+                return [];
+            }
+            return [].concat(array.pop()).concat(reverseArr(array));
+        }
+    }
 }(window, document));
